@@ -1,39 +1,45 @@
-# Sales Data Prediction - WebApi - .Net 8
+# <p align="center">Sales Data Prediction - WebApi - .Net 8 </p>  
 
 ## Descripción
 
 Este proyecto es una Web API desarrollada en .NET 8 para la consulta de información de algunas tablas de la BD StoreSample, además de tener un método especifico para la insercción de una orden nueva con un producto.
 
+> [!NOTE]
+> **El proyecto usa el ORM Dapper para interactuar con la Base de datos, a nivel de arquitectura se usaron los patrones de Repository y Factory (Para la conexión con la BD), además de un manejador general excepciones en los try - cacth dentro de las diferentes clases del repository.**
+
 ## Librerías Utilizadas
 
-- Dapper
-- Microsoft.Data.SqlClient
+> * Dapper
+> * Microsoft.Data.SqlClient
 
 ## Requisitos
 
 Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes elementos:
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional, pero recomendado para un desarrollo más fácil)
+> * [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+> * [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional, pero recomendado para un desarrollo más fácil)
 
 ## Clonación del Repositorio
 
 1. Clona el repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/tatanlejo17/SalesDataPredictionAPI.git
    ```
 
 ## Configuración del Proyecto
 
-1. Instalar Dependencias: Ejecutar el siguiente comando en la raíz del proyecto:
+1. Instalar Dependencias: 
+
+> [!IMPORTANT]
+> Ejecutar el siguiente comando en la raíz del proyecto:
 
    ```bash
    dotnet restore
 
    ```
 
-2. Configurar el archivo "appSettings.json" según la configuración local que se tenga del connection string a la BD.
+2. Configurar el archivo "appSettings.json" según la configuración local que tengas para el connection string a la BD.
 
    ```json
    "ConnectionStrings": {
@@ -49,16 +55,13 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes ele
    dotnet run
    ```
 
-Esto iniciará el servidor y podrás acceder a la API en http://localhost:"El puerto se asgina automáticamente" o el puerto configurado en tu launchSettings.json.
+   Esto iniciará el servidor y podrás acceder a la API en http://localhost:5041 `_El puerto se asigna automáticamente_` o el puerto configurado en tu launchSettings.json.
 
-2.  En el navegador ingresar a la url: http://localhost:"El puerto se asgina automáticamente"/swagger/index.html
-    Ejemplo:
+2.  En el navegador ingresar a la url:
 
-        ```text
+> [!TIP]
+> Ejemplo
+
         localhost:5041/swagger/index.html
 
-3.  Esto usará Swagger como aplicación para la documentación de la API y se podrán probar cada uno de los métodos expuestos.
-
-.[!NOTE]
-
-> El proyecto usa el ORM Dapper para interactuar con la Base de datos, a nivel de arquitectura se usaron los patrones de Repository y Factory (Para la conexión con la BD), además de un manejador general excepciones en try - cacth dentro de las clases del repository.
+4.  Esto usará Swagger como aplicación para la documentación de la API y se podrán probar cada uno de los métodos expuestos.

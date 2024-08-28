@@ -18,6 +18,18 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IShipperRepository, ShipperRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
+// Add Cors with allowed connections
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowedOrigins",
+    policy =>
+    {
+        policy.WithOrigins("AllowedOriginsApp")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +39,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowedOrigins");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

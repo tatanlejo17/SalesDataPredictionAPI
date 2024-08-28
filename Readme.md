@@ -35,7 +35,9 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes ele
 > Ejecutar el siguiente comando en la raíz del proyecto:
 
    ```bash
-   dotnet restore
+   dotnet restore SalesDataPredictionAPI.csproj
+
+   dotnet build SalesDataPredictionAPI.csproj
 
    ```
 

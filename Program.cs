@@ -19,12 +19,19 @@ builder.Services.AddScoped<IShipperRepository, ShipperRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // Add Cors with allowed connections
+var allowedOrigins = builder.Configuration.GetSection("AllowedOriginsApp").Get<string[]>();
+
+if (allowedOrigins == null || allowedOrigins.Length == 0)
+{
+    throw new ArgumentNullException(nameof(allowedOrigins), "The allowed origin is not configured in appsettings.json.");
+}
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowedOrigins",
     policy =>
     {
-        policy.WithOrigins("AllowedOriginsApp")
+        policy.WithOrigins(allowedOrigins)
         .AllowAnyHeader()
         .AllowAnyMethod();
     });

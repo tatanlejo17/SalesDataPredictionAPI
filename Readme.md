@@ -1,23 +1,22 @@
-# <p align="center">Sales Data Prediction - WebApi - .Net 8 </p>  
+# <p align="center">Sales Data Prediction - WebApi - .Net 8 </p>
 
 ## Descripción
 
-Este proyecto es una Web API desarrollada en .NET 8 para la consulta de información de algunas tablas de la BD StoreSample, además de tener un método especifico para la insercción de una orden nueva con un producto.
+Este proyecto consiste en una Web API desarrollada en .NET 8, diseñada para consultar información de varias tablas de la base de datos StoreSample y para realizar la inserción de órdenes con productos específicos.
 
-> [!NOTE]
-> **El proyecto usa el ORM Dapper para interactuar con la Base de datos, a nivel de arquitectura se usaron los patrones de Repository y Factory (Para la conexión con la BD), además de un manejador general excepciones en los try - cacth dentro de las diferentes clases del repository.**
+> [!NOTE] > **La API utiliza el ORM Dapper para la interacción con la base de datos. A nivel arquitectónico, se implementaron los patrones Repository y Factory. Se configuró un cors para permitir la conexión con un proyecto de Angular**
 
 ## Librerías Utilizadas
 
-> * Dapper
-> * Microsoft.Data.SqlClient
+> - Dapper
+> - Microsoft.Data.SqlClient
 
 ## Requisitos
 
 Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes elementos:
 
-> * [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-> * [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional, pero recomendado para un desarrollo más fácil)
+> - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+> - [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional, pero recomendado para un desarrollo más fácil)
 
 ## Clonación del Repositorio
 
@@ -29,17 +28,17 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes ele
 
 ## Configuración del Proyecto
 
-1. Instalar Dependencias: 
+1. Instalar Dependencias:
 
 > [!IMPORTANT]
 > Ejecutar el siguiente comando en la raíz del proyecto:
 
-   ```bash
-   dotnet restore SalesDataPredictionAPI.csproj
+```bash
+dotnet restore SalesDataPredictionAPI.csproj
 
-   dotnet build SalesDataPredictionAPI.csproj
+dotnet build SalesDataPredictionAPI.csproj
 
-   ```
+```
 
 2. Configurar el archivo "appSettings.json" según la configuración local que tengas para el connection string a la BD.
 
@@ -59,7 +58,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes ele
 
    Esto iniciará el servidor y podrás acceder a la API en http://localhost:5041 `_El puerto se asigna automáticamente_` o el puerto configurado en tu launchSettings.json.
 
-2.  En el navegador ingresar a la url:
+2. En el navegador ingresar a la url:
 
 > [!TIP]
 > Ejemplo

@@ -159,7 +159,7 @@ BEGIN
             OrderID, ProductId, UnitPrice, Qty, Discount
         )
         VALUES (
-            11080, 36, 32.12, 20, 4.000
+            @NewOrderID, @ProductId, @UnitPrice, @Qty, @Discount
         );
 
         COMMIT TRANSACTION

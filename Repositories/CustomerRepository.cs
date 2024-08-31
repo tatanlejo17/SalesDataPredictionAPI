@@ -23,7 +23,7 @@ namespace SalesDataPredictionAPI.Repositories
             {
                 using (IDbConnection db = _connectionFactory.CreateConnection())
                 {
-                    return await db.QueryAsync<Customer>("SELECT * FROM Sales.ViewNextOrderPrediction");
+                    return await db.QueryAsync<Customer>("SELECT * FROM Sales.ViewNextOrderPrediction ORDER BY LastOrderDate DESC");
                 }
             }
             catch (SqlException ex)

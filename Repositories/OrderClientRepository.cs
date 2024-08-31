@@ -22,7 +22,7 @@ namespace SalesDataPredictionAPI.Repositories
             {
                 using (IDbConnection db = _connectionFactory.CreateConnection())
                 {
-                    return await db.QueryAsync<OrderClient>("SELECT * FROM Sales.ViewGetClientOrders");
+                    return await db.QueryAsync<OrderClient>("SELECT * FROM Sales.ViewGetClientOrders ORDER BY Orderid DESC");
                 }
             }
             catch (SqlException ex)
@@ -41,13 +41,13 @@ namespace SalesDataPredictionAPI.Repositories
             }
         }
 
-        public async Task<OrderClient?> GetOrdersClientByIdAsync(int id)
+        public async Task<IEnumerable<OrderClient>> GetOrdersClientByIdAsync(int id)
         {
             try
             {
                 using (IDbConnection db = _connectionFactory.CreateConnection())
                 {
-                    return await db.QueryFirstOrDefaultAsync<OrderClient>("SELECT * FROM Sales.ViewGetClientOrders WHERE OrderId = @OrderId", new { OrderId = id });
+                    return await db.QueryAsync<OrderClient>("SELECT * FROM Sales.Orders WHERE custid = @custId ORDER BY orderid DESC", new { custId = id });
                 }
             }
             catch (SqlException ex)

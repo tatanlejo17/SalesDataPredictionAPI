@@ -1,4 +1,4 @@
-# <p align="center">Sales Data Prediction - WebApi - .Net 8 </p>
+# <p align="center">Sales Date Prediction - WebApi - .Net 8 </p>
 
 ## Descripción
 
@@ -16,7 +16,7 @@ Este proyecto consiste en una Web API desarrollada en .NET 8, diseñada para con
 Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes elementos:
 
 > - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-> - [Visual Studio Code](https://code.visualstudio.com/) o [Visual Studio](https://visualstudio.microsoft.com/) (opcional, pero recomendado para un desarrollo más fácil)
+> - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Clonación del Repositorio
 
@@ -47,6 +47,11 @@ dotnet build SalesDataPredictionAPI.csproj
        "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=StoreSample;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
    }
    ```
+
+3. En la ruta Data/Script dentro de la solución se encuentra un script para ejecutar en la BD.
+
+> [!IMPORTANT]
+> Abrir el entorno que se tenga para la gestión de SQL Server, y ejecutar el script.
 
 ## Ejecución del Proyecto
 

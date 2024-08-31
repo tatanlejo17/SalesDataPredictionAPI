@@ -24,7 +24,7 @@ namespace SalesDataPredictionAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<OrderClient>> GetOrdersClientById(int id)
+        public async Task<ActionResult<IEnumerable<OrderClient>>> GetOrdersClientById(int id)
         {
             var orderClient = await _orderClientRepository.GetOrdersClientByIdAsync(id);
 

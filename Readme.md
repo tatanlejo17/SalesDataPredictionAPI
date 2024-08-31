@@ -8,6 +8,8 @@ Este proyecto consiste en una Web API desarrollada en .NET 8, diseñada para con
 
 ## Librerías Utilizadas
 
+> [!NOTE]
+
 > - Dapper
 > - Microsoft.Data.SqlClient
 
@@ -15,6 +17,8 @@ Este proyecto consiste en una Web API desarrollada en .NET 8, diseñada para con
 
 Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes elementos:
 
+> [!IMPORTANT]
+>
 > - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 > - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -71,3 +75,25 @@ dotnet build SalesDataPredictionAPI.csproj
         localhost:5041/swagger/index.html
 
 4.  Esto usará Swagger como aplicación para la documentación de la API y se podrán probar cada uno de los métodos expuestos.
+
+## Ejemplo de trama para consumo del método POST
+
+> [!TIP]
+> Ejemplo:
+> {
+> "custId": 51,
+> "empId": "3",
+> "shipperId": "1",
+> "shipName": "Ship Name",
+> "shipAddress": "Ship Address",
+> "shipCity": "Ship City",
+> "shipCountry": "Ship Country",
+> "orderDate": "2024-08-31",
+> "requiredDate": "2024-09-05",
+> "shippedDate": "2024-09-10",
+> "freight": 35,
+> "productId": "44",
+> "unitPrice": 32.8,
+> "qty": 20,
+> "discount": "0.300"
+> }

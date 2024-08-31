@@ -121,64 +121,67 @@ END;
 GO
 
 CREATE PROCEDURE sp_CreateOrderWithDetails
-    @CustId INT,
+	@CustId INT,
     @EmpId INT,
     @ShipperId INT,
     @ShipName NVARCHAR(40),
     @ShipAddress NVARCHAR(60),
     @ShipCity NVARCHAR(15),
-    @OrderDate DATETIME,
-    @RequiredDate DATETIME,
-    @Shippeddate DATETIME,
+	@OrderDate DATETIME,
+	@RequiredDate DATETIME,
+	@Shippeddate DATETIME,
     @ShipCountry NVARCHAR(15),
     @Freight MONEY,
     @ProductId INT,
     @UnitPrice MONEY,
     @Qty SMALLINT,
     @Discount NUMERIC(4,3),
-    @NewOrderID INT OUTPUT
+	@NewOrderID INT OUTPUT
 AS
 BEGIN    
     BEGIN TRY
         BEGIN TRANSACTION
 
-        -- Insert new order
+        -- Insertar nueva orden
         INSERT INTO Sales.Orders (
-            custid, empid, orderdate, requireddate, shippeddate, shipperid, Freight,
-            shipname, shipaddress, shipcity, ShipCountry
+			custid, empid, orderdate, requireddate, shippeddate, shipperid, Freight,
+			shipname, shipaddress, shipcity, ShipCountry
         )
         VALUES (
             @CustId, @EmpId, @OrderDate, @RequiredDate, @Shippeddate, @ShipperID, @Freight,
-            @ShipName, @ShipAddress, @ShipCity, @ShipCountry
+			@ShipName, @ShipAddress, @ShipCity, @ShipCountry
         );
 
         SET @NewOrderID = (SELECT TOP 1 orderId FROM Sales.Orders ORDER BY orderId DESC);
 
-        -- Insert order datails
+        -- Insertar detalle de la orden
         INSERT INTO Sales.OrderDetails (
             OrderID, ProductId, UnitPrice, Qty, Discount
         )
         VALUES (
-            @NewOrderID, @ProductId, @UnitPrice, @Qty, @Discount
+            @NewOrderID, @ProductID, @UnitPrice, @Qty, @Discount
         );
 
         COMMIT TRANSACTION
         
-        -- Return the Id of the new order
+        -- Devolver el ID de la nueva orden
         SELECT @NewOrderID AS NewOrderID;
     END TRY
     BEGIN CATCH
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION; 
+    IF @@TRANCOUNT > 0
+        ROLLBACK TRANSACTION; 
 
-        DECLARE @ErrorMessage NVARCHAR(4000);
-        DECLARE @ErrorSeverity INT;
-        DECLARE @ErrorState INT;
+		-- Manejo del error
+		DECLARE @ErrorMessage NVARCHAR(4000);
+		DECLARE @ErrorSeverity VARCHAR(1000);
+		DECLARE @ErrorState VARCHAR(1000);
 
-        SELECT @ErrorMessage = ERROR_MESSAGE(),
-               @ErrorSeverity = ERROR_SEVERITY(),
-               @ErrorState = ERROR_STATE();
+		SELECT @ErrorMessage = ERROR_MESSAGE(),
+		@ErrorSeverity = ERROR_SEVERITY(),
+		@ErrorState = ERROR_STATE();
 
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH;
+		PRINT 'ErrorMessage: ' + @ErrorMessage
+		PRINT 'ErrorSeverity: ' + @ErrorSeverity
+		PRINT 'ErrorState: ' + @ErrorState
+	END CATCH;
 END

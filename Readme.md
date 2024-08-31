@@ -4,12 +4,12 @@
 
 Este proyecto consiste en una Web API desarrollada en .NET 8, diseñada para consultar información de varias tablas de la base de datos StoreSample y para realizar la inserción de órdenes con productos específicos.
 
-> [!NOTE] > **La API utiliza el ORM Dapper para la interacción con la base de datos. A nivel arquitectónico, se implementaron los patrones Repository y Factory. Se configuró un cors para permitir la conexión con un proyecto de Angular**
+> [!NOTE]
+> **La API utiliza el ORM Dapper para la interacción con la base de datos. A nivel arquitectónico, se implementaron los patrones Repository y Factory. Se configuró un cors para permitir la conexión con un proyecto de Angular**
 
 ## Librerías Utilizadas
 
 > [!NOTE]
-
 > - Dapper
 > - Microsoft.Data.SqlClient
 
